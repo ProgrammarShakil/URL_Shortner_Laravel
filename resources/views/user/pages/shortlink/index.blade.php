@@ -1,8 +1,8 @@
 @extends('user.layout.app')
 @section('user.content')
- <div>
-    <div class="ml-3">
-        Dashboard Is Blank For Now
+<div class="m-5">
+    <div>
+        All Shorted Links
     </div>
- </div>
+</div>
 @endsection

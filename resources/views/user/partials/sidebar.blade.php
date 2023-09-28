@@ -35,8 +35,8 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="#">All Shorted Links</a>
-                <a class="collapse-item" href="#">Create Short Link</a>
+                <a class="collapse-item" href="{{ route('user.shortend.url.index') }}">All Shorted Links</a>
+                <a class="collapse-item" href="{{ route('user.shortend.url.create') }}">Create Short Link</a>
             </div>
         </div>
     </li>

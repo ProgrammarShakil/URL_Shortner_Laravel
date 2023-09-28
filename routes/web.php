@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\User\DashboardController;
+use App\Http\Controllers\User\UrlShortController;
+
 use App\Http\Controllers\UrlShortendController;
 use App\Http\Controllers\WelcomeController;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -30,4 +33,10 @@ Route::get('/{shortUrl}', [UrlShortendController::class, 'redirect'])->name('sho
 // User Routes
 Route::prefix('user')->name('user.')->middleware(['auth'])->group(function () {
     Route::get('/dashboard/index', [DashboardController::class, 'index'])->name('dashboard.index');
+
+// shorten-url
+    Route::get('/shortend-url/index', [UrlShortController::class, 'allShortedData'])->name('shortend.url.index');
+    Route::get('/shortend-url/create', [UrlShortController::class, 'shortenForm'])->name('shortend.url.create.form');
+    Route::post('/shortend-url/create', [UrlShortController::class, 'shorten'])->name('shortend.url.create');
+
 });
