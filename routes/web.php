@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\UrlShortendController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,11 +14,17 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Auth::routes();
 
+// Frontend
 Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Route::get('/shorten-url', [UrlShortendController::class, 'shortURLFrom'])->name('shorten-url-form');
+Route::post('/shorten-url', [UrlShortendController::class, 'shorten'])->name('shorten-url');
+Route::get('/{shortUrl}', [UrlShortendController::class, 'redirect'])->name('short-url');
 
+
+// User Dashboard
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
