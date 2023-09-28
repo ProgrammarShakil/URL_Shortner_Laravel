@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <form action="" method="POST">
+    <form action="{{ route('shorten-url') }}" method="POST">
         @csrf
         <input class="form-control" name="original_url" type="text">
         <button type="submit" class="btn-info">Generate</button>

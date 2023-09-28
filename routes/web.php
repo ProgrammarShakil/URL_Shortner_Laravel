@@ -19,4 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get('/shorten-url', [UrlShortendController::class, 'shortURLFrom'])->name('shorten-url-form');
-
+Route::post('/shorten-url', [UrlShortendController::class, 'shorten'])->name('shorten-url');
+Route::get('/{shortUrl}', [UrlShortendController::class, 'redirect'])->name('short-url');
