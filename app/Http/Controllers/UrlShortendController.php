@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\ShortenedUrl;
+use App\Models\FrontShortUrl;
 use Illuminate\Support\Str;
 
 class UrlShortendController extends Controller
@@ -27,10 +27,10 @@ class UrlShortendController extends Controller
         $originalUrl = $request->input('original_url');
         $shortUrl = $this->generateShortUrl();
 
-        ShortenedUrl::create([
+        FrontShortUrl::create([
             'original_url' => $originalUrl,
             'short_url' => $shortUrl,
-            'click_count' => 0
+            'click_count' => 0,
         ]);
 
         return view('shortened', compact('shortUrl'));
@@ -38,7 +38,7 @@ class UrlShortendController extends Controller
 
     public function redirect($shortUrl)
     {
-        $url = ShortenedUrl::where('short_url', $shortUrl)->firstOrFail();
+        $url = FrontShortUrl::where('short_url', $shortUrl)->firstOrFail();
         $url->increment('click_count');
 
         return redirect($url->original_url);

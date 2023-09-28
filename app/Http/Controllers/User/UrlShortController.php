@@ -30,13 +30,16 @@ class UrlShortController extends Controller
         ShortenedUrl::create([
             'original_url' => $originalUrl,
             'short_url' => $shortUrl,
-            'click_count' => 0
+            'click_count' => 0,
+            'user_id' => auth()->user()->id
         ]);
 
         return view('user.pages.shortlink.generate_short_link', compact('shortUrl'));
     }
 
     public function allShortedData(){
-        return view('user.pages.shortlink.index');
+        $shorURLs = ShortenedUrl::all();
+
+        return view('user.pages.shortlink.index', compact('shorURLs'));
     }
 }
