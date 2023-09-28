@@ -10,6 +10,6 @@ class ShortenedUrl extends Model
     use HasFactory;
 
     protected $fillable = [
-        'original_url', 'short_url', 'click_count'
+        'user_id','original_url', 'short_url', 'click_count'
     ];
 }

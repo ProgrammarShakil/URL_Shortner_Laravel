@@ -13,10 +13,13 @@ return new class extends Migration
     {
         Schema::create('shortened_urls', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('original_url');
             $table->string('short_url')->unique();
             $table->integer('click_count')->default(0);
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
