@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\UrlShortendController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -16,15 +17,16 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 
-// Frontend
-Route::get('/', function () {
-    return view('welcome');
-});
+// Frontend Routes
+Route::get('/', function () { return view('welcome');});
 
 Route::get('/shorten-url', [UrlShortendController::class, 'shortURLFrom'])->name('shorten-url-form');
 Route::post('/shorten-url', [UrlShortendController::class, 'shorten'])->name('shorten-url');
 Route::get('/{shortUrl}', [UrlShortendController::class, 'redirect'])->name('short-url');
 
 
-// User Dashboard
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// User Routes
+Route::prefix('user')->name('user.')->middleware(['auth'])->group(function () {
+    Route::get('/dashboard/index', [DashboardController::class, 'index'])->name('dashboard.index');
+});

@@ -10,18 +10,30 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 
 <body>
-    <div class="">
-        <div class="">
-            <div class="">
+    <div class="row justify-content-center">
+        <div class="row justify-content-center mt-3 text-center">
+            <div class="col-md-6">
+                <h1 class="">Short URL - Documentation</h1>
+            </div>
+            <div class="col-md-2 d-flex">
+                <div><a class="btn btn-success  me-1" href="{{ route('login') }}">Login</a></div>
+                <div><a class="btn btn-success"  href="{{ route('register') }}">Register</a></div>
+            </div>
+        </div>
+
+        <div class="card col-md-8 my-3">
+            <div class="card-body">
                 <p>Creating documentation for a simple URL shortener website with click count and user authentication is
                     essential to help users understand how to use your service effectively. Below is a basic template
                     for such documentation:</p>
-                <div>click here to short url from long url <a class="btn btn-danger" href="{{ route('shorten-url-form') }}">Link Shortner</a>
+                <div>click here to short url from long url without login <a class="btn btn-danger"
+                        href="{{ route('shorten-url-form') }}">Link Shortner</a>
                 </div>
-                <h1>Short URL Website Documentation</h1>
                 <h2>Table of Contents</h2>
                 <ol>
                     <li>Introduction</li>
@@ -56,10 +68,11 @@
                 <h3>Installation</h3>
                 <ol>
                     <li>
-                        <p>Clone the repository from GitHub:</p>
-                        <pre><div><div></div><div><code>git clone</span> https://github.com/yourusername/short-url-website.git
-                        </code></div></div>
-                        </pre>
+                        <p>Clone the repository from GitHub:
+                            git clone https://github.com/yourusername/short-url-website.git
+                        </p>
+
+
                     </li>
                     <li>
                         <p>Configure your web server to point to the project's public directory.</p>
@@ -70,10 +83,12 @@
                     </li>
                     <li>
                         <p>Install PHP dependencies using Composer:</p>
-                        <div><code>composer install
+                        <div>
+                            <div>composer install
                     <li>
                         <p>Run migrations to set up the database schema:</p>
-                        <div class=""><code class="">php artisan migrate
+                        <div>
+                            <div>php artisan migrate
                     </li>
                 </ol>
                 <h2>3. User Registration and Authentication</h2>
@@ -124,6 +139,7 @@
                     service effectively.</p>
             </div>
         </div>
+
     </div>
 </body>
 
