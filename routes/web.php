@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UrlShortendController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,3 +22,7 @@ Route::get('/', function () {
 Route::get('/shorten-url', [UrlShortendController::class, 'shortURLFrom'])->name('shorten-url-form');
 Route::post('/shorten-url', [UrlShortendController::class, 'shorten'])->name('shorten-url');
 Route::get('/{shortUrl}', [UrlShortendController::class, 'redirect'])->name('short-url');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
