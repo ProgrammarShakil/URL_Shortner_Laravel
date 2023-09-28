@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\ShortenedUrl;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -46,8 +47,14 @@ class UrlShortController extends Controller
     }
 
     public function allShortedData(){
-        $shorURLs = ShortenedUrl::all();
+        // $shorURLs = ShortenedUrl::all();
+        $id = auth()->user()->id;
+        $user = User::find($id);
+        $shortURLs = $user->shortUrls;
 
-        return view('user.pages.shortlink.index', compact('shorURLs'));
+        return view('user.pages.shortlink.index', compact('shortURLs'));
+
+
+
     }
 }

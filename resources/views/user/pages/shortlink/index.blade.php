@@ -16,12 +16,12 @@
                         </thead>
                         <tbody>
                             @php $counter = 1; @endphp
-                            @foreach ($shorURLs as $shortURL)
+                            @foreach ($shortURLs as $shortURL)
                                 <tr>
                                     <td>
                                       {{$counter++}}
                                    </td>
-                                    <td> {{ $shortURL->user_id }}</td>
+                                    <td> {{ $shortURL->user->name }}</td>
                                     <td> <a
                                             href="{{ route('user.shortend.url', $shortURL->short_url) }}">{{ route('user.shortend.url', $shortURL->short_url) }}</a>
                                     </td>

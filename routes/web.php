@@ -26,12 +26,12 @@ Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 
 Route::get('/shorten-url', [UrlShortendController::class, 'shortURLFrom'])->name('shorten-url-form');
 Route::post('/shorten-url', [UrlShortendController::class, 'shorten'])->name('shorten-url');
-Route::get('/{shortUrl}', [UrlShortendController::class, 'redirect'])->name('short-url');
+Route::get('u/{shortUrl}', [UrlShortendController::class, 'redirect'])->name('short-url');
 
 
 
 // User Routes
-Route::prefix('user')->name('user.')->middleware(['auth'])->group(function () {
+Route::prefix('')->name('user.')->middleware(['auth'])->group(function () {
     Route::get('/dashboard/index', [DashboardController::class, 'index'])->name('dashboard.index');
 
 // shorten-url
