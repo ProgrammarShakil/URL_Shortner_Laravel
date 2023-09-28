@@ -11,20 +11,22 @@
                                 <th>User Name</th>
                                 <th>Shortend URL</th>
                                 <th>Long URL</th>
-                                <th>Click</th>
+                                <th>Short Link Click</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @php
-                                $counter = 0;
-                            @endphp
+                            @php $counter = 1; @endphp
                             @foreach ($shorURLs as $shortURL)
                                 <tr>
-                                    <td> @php
-                                        $counter++;
-                                    @endphp </td>
-                                    <td> {{ $shortURL->user_id }} </td>
-                                    <td> {{ env('APP_URL') .'/'. $shortURL->short_url }} </td>
+                                    <td>
+                                      {{$counter++}}
+                                   </td>
+                                    <td> {{ $shortURL->user_id }}</td>
+                                    <td> <a
+                                            href="{{ route('user.shortend.url', $shortURL->short_url) }}">{{ route('user.shortend.url', $shortURL->short_url) }}</a>
+                                    </td>
+                                    <td> <a href="{{ $shortURL->original_url }}">{{ $shortURL->original_url }}</a> </td>
+                                    <td>{{ $shortURL->click_count }}</td>
                                 </tr>
                             @endforeach
                         </tbody>

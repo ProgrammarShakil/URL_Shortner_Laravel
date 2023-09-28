@@ -39,4 +39,6 @@ Route::prefix('user')->name('user.')->middleware(['auth'])->group(function () {
     Route::get('/shortend-url/create', [UrlShortController::class, 'shortenForm'])->name('shortend.url.create.form');
     Route::post('/shortend-url/create', [UrlShortController::class, 'shorten'])->name('shortend.url.create');
 
+    Route::get('/{shortend}', [UrlShortController::class, 'redirect'])->name('shortend.url');
+
 });

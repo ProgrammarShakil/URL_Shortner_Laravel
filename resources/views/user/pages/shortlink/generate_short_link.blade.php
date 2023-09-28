@@ -16,9 +16,8 @@
 
         <div class="card-body">
             <p>Back to <a class="btn btn-success btn-sm" href="{{ route('user.dashboard.index') }}">Home</a></p>
-            <p>Copy and Share Your shortened URL Link: <a
-                    href="{{ route('short-url', $shortUrl) }}">{{ route('short-url', $shortUrl) }}</a></p>
-            <p>If you want to see how much clicked your link, please register your account.</p>
+            <p>Your shortened URL Link: <a
+                    href="{{ route('user.shortend.url', $shortUrl) }}">{{ route('user.shortend.url', $shortUrl) }}</a></p>
         </div>
     </div>
 </div>
