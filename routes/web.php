@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Auth::routes();
 
+// Frontend
 Route::get('/', function () {
     return view('welcome');
 });
@@ -23,6 +25,6 @@ Route::get('/shorten-url', [UrlShortendController::class, 'shortURLFrom'])->name
 Route::post('/shorten-url', [UrlShortendController::class, 'shorten'])->name('shorten-url');
 Route::get('/{shortUrl}', [UrlShortendController::class, 'redirect'])->name('short-url');
 
-Auth::routes();
 
+// User Dashboard
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

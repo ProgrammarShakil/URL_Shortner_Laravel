@@ -30,7 +30,7 @@ class UrlShortendController extends Controller
         ShortenedUrl::create([
             'original_url' => $originalUrl,
             'short_url' => $shortUrl,
-            'click_count' => 5
+            'click_count' => 0
         ]);
 
         return view('shortened', compact('shortUrl'));
