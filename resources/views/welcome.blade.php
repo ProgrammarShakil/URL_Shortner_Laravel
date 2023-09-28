@@ -31,7 +31,7 @@
                 <p>Creating documentation for a simple URL shortener website with click count and user authentication is
                     essential to help users understand how to use your service effectively. Below is a basic template
                     for such documentation:</p>
-                <div>click here to short url from long url without login <a class="btn btn-danger"
+                <div>click here to short url from long url without  <a class="btn btn-danger"
                         href="{{ route('shorten-url-form') }}">Link Shortner</a>
                 </div>
                 <h2>Table of Contents</h2>
